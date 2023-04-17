@@ -6,13 +6,13 @@
   "files": [
     "dist/*",
     "src/*",
-    "styles/*",
     "package.json"
   ],
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "types": "dist/index.d.ts",
-  "module": "dist/index.js",
+  "module": "dist/main.js",
   "dependencies": {
+    "@react-spring/web": "^9.7.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -27,6 +27,7 @@
   },
   "scripts": {
     "tsc": "tsc",
+    "build": "npx webpack --config webpack.config.dev.js --mode=development",
     "test": "react-scripts test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -69,9 +70,16 @@
     "@storybook/react-webpack5": "7.0.4",
     "@storybook/testing-library": "0.0.14-next.2",
     "babel-plugin-named-exports-order": "0.0.2",
+    "css-loader": "^6.7.3",
+    "postcss-loader": "^7.2.4",
     "prop-types": "15.8.1",
+    "react-scripts": "5.0.1",
+    "sass": "^1.62.0",
+    "sass-loader": "^13.2.2",
     "storybook": "7.0.4",
+    "style-loader": "^3.3.2",
+    "ts-loader": "^9.4.2",
     "webpack": "5.79.0",
-    "react-scripts": "5.0.1"
+    "webpack-cli": "^5.0.1"
   }
 }

@@ -1,0 +1,19 @@
+.common {
+    font-size: 1em;
+    transition: all 1s;
+}
+
+.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.hide__left {
+    transform: translate(-2em);
+    opacity: 0;
+}
+
+.hide__right{
+    transform: translate(2em);
+    opacity: 0;
+}

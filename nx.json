@@ -12,7 +12,7 @@
   "targetDefaults": {
     "start": {
       "dependsOn": [
-        "^tsc"
+        "^build"
       ]
     },
     "tsc": {
