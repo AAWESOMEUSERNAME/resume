@@ -7,9 +7,14 @@
   "author": "chenyiyang <17621718276@163.com>",
   "license": "MIT",
   "scripts": {
+    "preinstall": "lerna run build --scope @resume/common-*",
     "lerna": "lerna",
     "mobile": "lerna run start --scope @resume/app-mobile",
-    "storybook-lib": "lerna run storybook --scope @resume/common-components"
+    "pc": "lerna run compile --scope @resume/app-pc && lerna run start --scope @resume/app-pc",
+    "extract": "lerna run extract",
+    "nx-reset": "nx reset",
+    "graph": "nx graph",
+    "storybook-comp": "lerna run storybook --scope @resume/common-components"
   },
   "workspaces": [
     "packages/*"

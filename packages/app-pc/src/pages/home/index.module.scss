@@ -1,0 +1,113 @@
+@use "../../common/common.scss" as common;
+
+@mixin content {
+    flex: 1;
+    max-width: common.toRem(1100);
+    padding: 0 common.toRem(28);
+}
+
+$footerHeight: #{common.toRem(100)};
+
+.container {
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../common/asset/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: common.$contentFont;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.header__content {
+    @include content();
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header__content__info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3em;
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 6px;
+        background-color: white;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .title {
+        font-size: common.$coverFont;
+    }
+
+    .sub {
+        font-size: common.$titleFont;
+    }
+
+    .intro {
+        white-space: break-spaces;
+    }
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - $footerHeight);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.main__content {
+    @include content();
+    display: flex;
+    flex-direction: column;
+
+    --tech-height: #{common.toRem(120)};
+
+    .tech {
+        top: 0;
+        height: var(--tech-height);
+    }
+
+    .tech__title {
+        padding: 1em 0;
+    }
+
+    .tech__content {}
+
+    .project {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+}
+
+.footer {
+    height: $footerHeight;
+    background: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+}
+
+.footer__content {
+    @include content();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8c8c8c;
+}

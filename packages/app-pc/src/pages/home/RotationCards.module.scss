@@ -1,0 +1,60 @@
+@use "../../common/common.scss" as common;
+
+.container {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 4em);
+    margin: 2em 0;
+    overflow: hidden;
+}
+
+.title{
+    margin: 0.2em 0;
+    font-size: common.toRem(60);
+}
+
+.content{
+    margin: 1em 0;
+    font-size: common.toRem(20);
+}
+
+@mixin card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    top: 0;
+    background: rgba($color: #000000, $alpha: 0.7);
+    transition: all 0.2s linear;
+    transform: perspective(10px) translateZ(-1px);
+}
+
+.card_pre_hide {
+    @include card();
+    left: -125%;
+}
+
+.card_pre {
+    @include card();
+    left: -55%;
+}
+
+.card_next_hide{
+    @include card();
+    left: 155%;
+}
+
+.card_next {
+    @include card();
+    left: 85%;
+}
+
+.card_cur {
+    @include card();
+    left: 15%;
+    z-index: 1;
+    transform: translateZ(0px);
+}

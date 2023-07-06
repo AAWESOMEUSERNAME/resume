@@ -1,12 +1,12 @@
+import {} from 'react-dom';
 import React from 'react';
-import logo from './logo.svg';
+import { ProgressiveText } from '@resume/common-components'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -16,6 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
+          <ProgressiveText trail={[]}>test</ProgressiveText>
         </a>
       </header>
     </div>

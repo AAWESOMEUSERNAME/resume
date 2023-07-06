@@ -7,7 +7,7 @@
 	// Placeholders with the same ids are connected.
 	// Example:
 	"React component ts template": {
-		"scope": "typescript,typescriptreact",
+		"scope": "typescriptreact",
 		"prefix": "reactc",
 		"body": [
 			"import React from 'react'",
@@ -24,7 +24,7 @@
 		"description": "generate React component template"
 	},
 	"React component ts default template": {
-		"scope": "typescript,typescriptreact",
+		"scope": "typescriptreact",
 		"prefix": "reactdc",
 		"body": [
 			"import React from 'react'",

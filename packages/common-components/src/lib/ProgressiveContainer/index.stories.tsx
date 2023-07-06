@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ProgressiveContainer from '../';
+import ProgressiveContainer from '.';
 import styles from './index.module.scss'
+import { decorators } from '../common/story-utils';
+import { useSpring } from '@react-spring/web';
+import config from '../common/constants/spring-config';
+import { useEffect } from 'react';
 
 const meta: Meta<typeof ProgressiveContainer> = {
     /* 👇 The title prop is optional.
@@ -9,10 +13,18 @@ const meta: Meta<typeof ProgressiveContainer> = {
      */
     title: 'Components/ProgressiveContainer',
     component: ProgressiveContainer,
+    decorators: [],
+    args: {
+        direction: 'vertical'
+    },
     argTypes: {
-        emergeFrom: {
-            options: ['left', 'right'],
-            control: { type: 'radio' },
+        springValue: {
+            control: false
+        },
+        direction: {
+            description: '动画执行方向',
+            control: 'select',
+            options: ['vertical', 'horizental']
         },
         containerCls: {
             control: { type: 'text' }
@@ -30,9 +42,22 @@ type Story = StoryObj<typeof ProgressiveContainer>;
  * to learn how to use render functions.
  */
 export const Primary: Story = {
-    render: (args) => <div className={styles.scrollPage}>
-        <ProgressiveContainer {...args}>
+    render: (args) => {
+        const [props, api] = useSpring(() => ({
+            transform: 1,
+            opacity: 0,
+            config: config.wobbly(true)
+        }))
+
+        useEffect(() => {
+            api.start({
+                transform: 0,
+                opacity: 1
+            })
+        })
+
+        return <ProgressiveContainer {...args} springValue={props}>
             <div style={{ height: '3em', background: 'yellow' }}>test</div>
         </ProgressiveContainer>
-    </div>
+    }
 };

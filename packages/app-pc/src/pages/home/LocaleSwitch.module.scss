@@ -1,0 +1,19 @@
+@use "../../common/common.scss" as common;
+
+.container {
+    position: fixed;
+    background: rgba($color: #000000, $alpha: 0.5);
+    top: common.toRem(10);
+    right: common.toRem(30);
+    color: #fafafa;
+    border-radius: 1em;
+    padding: 0.5em;
+    line-height: 100%;
+    font-size: common.toRem(14);
+    cursor: pointer;
+}
+
+.current {
+    font-weight: bold;
+    font-size: 1.2em;
+}

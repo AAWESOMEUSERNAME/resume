@@ -1,50 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './index.module.scss'
+import { SpringValue, animated } from '@react-spring/web'
 
-export type ProgressiveProps = {
-    emergeFrom?: 'left' | 'right'
+export type ProgressiveContainerProps = {
+    springValue: {
+        transform: SpringValue<number>
+        opacity: SpringValue<number>;
+    }
+    direction?: Direction
     containerCls?: string
-    children: React.ReactElement
+    children?: React.ReactNode
 }
 
-const ProgressiveContainer: React.FC<ProgressiveProps> = ({
-    emergeFrom = 'left', containerCls, children
-}) => {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const [isShow, setIsShow] = useState(false)
-    useEffect(() => {
-        if (containerRef.current) {
-            const showOb = new IntersectionObserver(([ele]) => {
-                if (ele.isIntersecting) {
-                    setIsShow(true)
-                }
-            }, {
-                threshold: 0.3
-            })
-            const hideOb = new IntersectionObserver(([ele]) => {
-                if (!ele.isIntersecting) {
-                    setIsShow(false)
-                }
-            }, {
-                threshold: 0
-            })
-            hideOb.observe(containerRef.current)
-            showOb.observe(containerRef.current)
+const getTransform = (sv: SpringValue<number>, direction: Direction) => {
+    if (direction === 'horizental') {
+        return sv.to(v => `translateX(${v}em)`)
+    }
+    return sv.to(v => `translateY(${v}em)`)
+}
+const ProgressiveContainer = React.forwardRef<HTMLDivElement, ProgressiveContainerProps>(({
+    springValue, direction = 'horizental', containerCls = '', children
+}, ref) => {
 
-            return () => {
-                hideOb.disconnect()
-                showOb.disconnect()
-            }
-        }
-    }, [])
-
-    return <div className={
-        styles.common + ' ' +
-        (containerCls ? containerCls : '') + ' ' +
-        (isShow ? styles.show : styles['hide__' + emergeFrom])
-    } ref={containerRef}>
+    return <animated.div className={`${styles.container} ${containerCls}`} ref={ref}
+        style={{
+            opacity: springValue.opacity.to(v => v),
+            transform: getTransform(springValue.transform, direction)
+        }}>
         {children}
-    </div>
-}
+    </animated.div>
+})
 
 export default ProgressiveContainer

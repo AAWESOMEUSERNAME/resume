@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function toRem($px){
+    @return 0rem + math.div($px, 14)
+}
+
+$coverFont: #{toRem(160)};
+$titleFont: #{toRem(40)};
+$contentFont: #{toRem(20)};

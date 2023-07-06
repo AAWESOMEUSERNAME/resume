@@ -36,8 +36,12 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js',],
   },
+  externals: {
+    "react": "react",
+    "react-dom": "react-dom",
+  },
   output: {
-    filename: 'main.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     library: {
       name: 'common-components',

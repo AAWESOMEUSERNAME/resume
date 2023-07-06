@@ -1,0 +1,22 @@
+{
+  "GQhlB2": {
+    "defaultMessage": "副标题",
+    "description": "首页副标题"
+  },
+  "RGEL4u": {
+    "defaultMessage": "['{\"title\": \"公司名\", \"content\": \"经历\"'},'{\"title\": \"公司名2\", \"content\": \"经历2\"'}]",
+    "description": "经历, json格式, ' 用于花括号逃逸"
+  },
+  "Z31H9q": {
+    "defaultMessage": "一些介绍\\r\\n",
+    "description": "首页介绍"
+  },
+  "rpZuQk": {
+    "defaultMessage": "标题",
+    "description": "首页标题"
+  },
+  "u9UHiZ": {
+    "defaultMessage": "本项目git库",
+    "description": "项目git地址"
+  }
+}

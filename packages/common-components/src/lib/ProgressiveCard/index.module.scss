@@ -1,0 +1,36 @@
+@use '../common.scss' as common;
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin title {
+    font-size: common.toRem(20);
+    margin-bottom: common.toRem(6);
+}
+
+.title_left {
+    @include title();
+    justify-content: flex-start;
+}
+
+.title_right {
+    @include title();
+    justify-content: flex-end;
+}
+
+@mixin content {
+    white-space: break-spaces;
+    font-size: common.toRem(16);
+}
+
+.content_left {
+    @include content();
+    text-align: left;
+}
+
+.content_right {
+    @include content();
+    text-align: right;
+}

@@ -4,21 +4,10 @@
       "runner": "nx/tasks-runners/default",
       "options": {
         "cacheableOperations": [
-          "tsc"
         ]
       }
     }
   },
   "targetDefaults": {
-    "start": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "tsc": {
-      "outputs": [
-        "{projectRoot}/dist"
-      ]
-    }
   }
 }
